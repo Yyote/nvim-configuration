@@ -72,12 +72,16 @@ local default_plugins = {
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     opts = function()
       return require "plugins.configs.treesitter"
     end,
-    config = function(_, opts)
+    -- config = function(_, opts)
+    config = function()
       dofile(vim.g.base46_cache .. "syntax")
-      require("nvim-treesitter.configs").setup(opts)
+      require("nvim-treesitter.configs").setup(require("custom.configs.nvim-treesitter"))
     end,
   },
 
@@ -284,3 +288,7 @@ require("trouble").setup()
 require("spectre").setup(require("custom.configs.spectre"))
 
 require("custom.configs.linenum")
+require("custom.configs.nvim-treesitter-textobjects")
+
+
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist)

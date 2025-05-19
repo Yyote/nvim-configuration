@@ -28,13 +28,6 @@ local plugins = {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {},
---    opts = function(_, opts)
---      -- blankline configs
---      return require("ibl").make_opts(opts)
---    end,
---    dependencies = {
---      "TheGLander/indent-rainbowline.nvim",
---    },
   },
   {
     "nvim-lua/plenary.nvim",
@@ -88,6 +81,10 @@ local plugins = {
     event = 'VimEnter',
     config = function() require("vgit").setup() end,
   },
+--   {
+--     "nvim-treesitter/nvim-treesitter-textobjects",
+--     opts = {},
+--   },
   --   {
 --     "mileszs/ack.vim",
 --     opts = {}
