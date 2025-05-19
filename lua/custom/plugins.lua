@@ -81,6 +81,10 @@ local plugins = {
     event = 'VimEnter',
     config = function() require("vgit").setup() end,
   },
+  {
+    'dcampos/nvim-snippy',
+    opts = {},
+  },
 --   {
 --     "nvim-treesitter/nvim-treesitter-textobjects",
 --     opts = {},

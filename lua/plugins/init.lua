@@ -290,5 +290,6 @@ require("spectre").setup(require("custom.configs.spectre"))
 require("custom.configs.linenum")
 require("custom.configs.nvim-treesitter-textobjects")
 
+require("snippy").setup(require("custom.configs.snippy"))
 
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist)
