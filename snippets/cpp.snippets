@@ -1,15 +1,12 @@
-snippet vdestr
+snippet jjvdestr
 	virtual ~${1:destrname}() = default;
 
-snippet interface
+snippet jjinterface
 	class ${1:classname}
 	{
 		public:
 			virtual ~${1:classname}() = default;
-			${1:classname}(${2:args})
-			{ 
-				
-			}
+			${1:classname}(${2:args});
 
 		protected:
 
@@ -17,17 +14,17 @@ snippet interface
 
 	};
 
-snippet class
+snippet jjclass
 	class ${1:classname}
 	{
 	public:
-		${1:classname}(); // Конструктор по-умолчанию
-		${1:classname}(args); // Параметризованный конструктор
-		${1:classname}(const ${1:classname}& other); // Конструктор копирования
-		${1:classname}(${1:classname}&& other) noexcept; // Конструктор перемещения
+		${1:classname}(); /// Конструктор по-умолчанию
+		${1:classname}(args); /// Параметризованный конструктор
+		${1:classname}(const ${1:classname}& other); /// Конструктор копирования
+		${1:classname}(${1:classname}&& other) noexcept; /// Конструктор перемещения
 
-		${1:classname}& operator=(${1:classname} other) = default;
-		${1:classname}& operator=(${1:classname}&& other) = default;
+		${1:classname}& operator=(${1:classname}& other) = default; /// copy-assignment
+		${1:classname}& operator=(${1:classname}&& other) = default; /// move-assignment
 
 
 	protected:
@@ -36,14 +33,14 @@ snippet class
 
 	};
 
-snippet func
+snippet jjfunc
 	${1:rettype} ${2:funcname}(${3:args})
 	{
 		
 	}
 
 
-snippet constr
+snippet jjconstr
 	${1:funcname}(${2:args})
 	{
 		
