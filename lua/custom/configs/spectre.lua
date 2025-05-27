@@ -16,6 +16,16 @@ local opts = {
 --         cmd = "<cmd>lua require('spectre').toggle_line()<CR>",
 --         desc = "toggle item"
 --     },
+    ['run_replace'] = {
+        map = "<leader>R",
+        cmd = "<cmd>lua require('spectre.actions').run_replace()<CR>",
+        desc = "replace all"
+    },
+    ['run_current_replace'] = {
+      map = "<leader>rc",
+      cmd = "<cmd>lua require('spectre.actions').run_current_replace()<CR>",
+      desc = "replace current line"
+    },
     ['enter_file'] = {
         map = "<cr>",
         cmd = "<cmd>lua require('spectre.actions').select_entry()<CR>",
