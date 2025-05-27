@@ -20,15 +20,19 @@ snippet interface
 snippet class
 	class ${1:classname}
 	{
-		public:
-			${1:classname}(${2:args})
-			{ 
-				
-			}
+	public:
+		${1:classname}(); // Конструктор по-умолчанию
+		${1:classname}(args); // Параметризованный конструктор
+		${1:classname}(const ${1:classname}& other); // Конструктор копирования
+		${1:classname}(${1:classname}&& other) noexcept; // Конструктор перемещения
 
-		protected:
+		${1:classname}& operator=(${1:classname} other) = default;
+		${1:classname}& operator=(${1:classname}&& other) = default;
 
-		private:
+
+	protected:
+
+	private:
 
 	};
 
