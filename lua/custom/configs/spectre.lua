@@ -38,6 +38,8 @@ local opts = {
       args = {
           '-u',
           '--vimgrep',
+          '--literal',
+          '--case-sensitive',
        } ,
       options = {
         ['ignore-case'] = {
