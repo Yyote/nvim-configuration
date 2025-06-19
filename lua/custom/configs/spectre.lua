@@ -31,6 +31,11 @@ local opts = {
         cmd = "<cmd>lua require('spectre.actions').select_entry()<CR>",
         desc = "open file"
     },
+    ['delete_line'] = {
+        map = '<leader>rd',
+        cmd = "<cmd>lua require('spectre.actions').run_delete_line()<CR>",
+        desc = 'delete line',
+    }
   },
   find_engine = {
     ['ag'] = {

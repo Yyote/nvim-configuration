@@ -3,9 +3,14 @@ local M = {}
 
 -- M.ui = { theme = 'github_dark' }
 -- M.ui = { theme = 'ayu_dark' }
+-- theme = 'everblush',
 -- M.ui = { theme = 'rxyhn' }
+  -- theme = 'decay',
+  -- theme = 'doomchad',
+  -- theme = 'monekai',
+  -- theme = 'dark_horizon',
 M.ui = {
-  theme = 'everblush',
+  theme = 'decay',
   transparency = true,
 }
 
