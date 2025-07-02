@@ -1,0 +1,11 @@
+-- ~/.config/nvim/lua/plugins/gutentags.lua
+-- return {
+--   "ludovicchabant/vim-gutentags",            -- plugin repository[1]
+--   event = { "BufReadPost", "BufNewFile" },   -- lazy-load when a file opens
+--   init = function()
+--     -- where tag files are written (optional but keeps project roots clean)
+--     vim.g.gutentags_cache_dir = vim.fn.stdpath("cache") .. "/tags"
+--     -- recognised project roots in addition to .git/.hg (example)
+--     vim.g.gutentags_project_root = { ".git", "Makefile", "package.json" }
+--   end,
+-- }

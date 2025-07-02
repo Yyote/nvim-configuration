@@ -245,6 +245,16 @@ local default_plugins = {
       require("which-key").setup(opts)
     end,
   },
+  {
+    "ludovicchabant/vim-gutentags",            -- plugin repository[1]
+    event = { "BufReadPost", "BufNewFile" },   -- lazy-load when a file opens
+    init = function()
+      -- where tag files are written (optional but keeps project roots clean)
+      vim.g.gutentags_cache_dir = vim.fn.stdpath("cache") .. "/tags"
+      -- recognised project roots in addition to .git/.hg (example)
+      vim.g.gutentags_project_root = { ".git", "Makefile", "package.json" }
+    end,
+  },
 }
 
 local config = require("core.utils").load_config()
@@ -278,6 +288,8 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 end)
 
+
+
 require("ibl").setup { indent = { highlight = highlight } }
 -- require("nvim-rg").setup()
 
@@ -291,5 +303,6 @@ require("custom.configs.linenum")
 require("custom.configs.nvim-treesitter-textobjects")
 
 require("snippy").setup(require("custom.configs.snippy"))
-
+require "custom/configs/filetypes"
+-- require("plugins/configs/gutentags.lua").setup()
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist)
