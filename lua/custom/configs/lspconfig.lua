@@ -4,7 +4,6 @@ local on_attach = config.on_attach
 local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig")
-local navic = require("nvim-navic")
 
 
 -- root_dir = function(filename)
@@ -13,13 +12,7 @@ local navic = require("nvim-navic")
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
-    on_attach = function(client, bufnr)
-      client.server_capabilities.signatureHelpProvider = false
-      if client.server_capabilities.documentSymbolProvider then
-        navic.attach(client, bufnr)
-      end
-      if on_attach then on_attach(client, bufnr) end
-    end
+    on_attach(client, bufnr)
     opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts) -- Trigger code actions (quickfixes)
   end,
@@ -27,12 +20,7 @@ lspconfig.clangd.setup {
 }
 
 lspconfig.pyright.setup({
-  on_attach = function(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
-      navic.attach(client, bufnr)
-    end
-    if on_attach then on_attach(client, bufnr) end
-  end,
+  on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {"python"},
   settings = {
