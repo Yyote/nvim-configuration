@@ -255,6 +255,11 @@ local default_plugins = {
       vim.g.gutentags_project_root = { ".git", "Makefile", "package.json" }
     end,
   },
+  {
+    "SmiteshP/nvim-navic",
+    dependencies = "neovim/nvim-lspconfig",
+    opts = {},
+  },
 }
 
 local config = require("core.utils").load_config()
@@ -293,9 +298,42 @@ end)
 require("ibl").setup { indent = { highlight = highlight } }
 -- require("nvim-rg").setup()
 
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
 require("trouble").setup()
 
+require("nvim-navic").setup({
+      highlight = true,
+})
+
+vim.api.nvim_set_hl(0, "NavicIconsFile",          { fg = "#ffffff", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsModule",        { fg = "#ffb86c", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsNamespace",     { fg = "#8be9fd", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsPackage",       { fg = "#bd93f9", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsClass",         { fg = "#61afef", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsMethod",        { fg = "#98c379", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsProperty",      { fg = "#e5c07b", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsField",         { fg = "#e06c75", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsConstructor",   { fg = "#d19a66", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsEnum",          { fg = "#56b6c2", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsInterface",     { fg = "#61afef", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsFunction",      { fg = "#c678dd", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsVariable",      { fg = "#e06c75", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsConstant",      { fg = "#ffb86c", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsString",        { fg = "#98c379", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsNumber",        { fg = "#d19a66", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsBoolean",       { fg = "#bd93f9", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsArray",         { fg = "#8be9fd", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsObject",        { fg = "#ff79c6", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsKey",           { fg = "#f1fa8c", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsNull",          { fg = "#f8f8f2", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsEnumMember",    { fg = "#56b6c2", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsStruct",        { fg = "#61afef", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsEvent",         { fg = "#ffb86c", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsOperator",      { fg = "#ff79c6", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicIconsTypeParameter", { fg = "#bd93f9", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicText",               { fg = "#abb2bf", bg = "#1e222a" })
+vim.api.nvim_set_hl(0, "NavicSeparator",          { fg = "#5c6370", bg = "#1e222a" })
 
 require("spectre").setup(require("custom.configs.spectre"))
 
@@ -306,3 +344,29 @@ require("snippy").setup(require("custom.configs.snippy"))
 require "custom/configs/filetypes"
 -- require("plugins/configs/gutentags.lua").setup()
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist)
+--
+
+-- local function set_navic_highlights()
+--   vim.api.nvim_set_hl(0, "@lsp.type.function",      { fg = "#C678DD" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.class",         { fg = "#61AFEF" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.method",        { fg = "#98C379" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.property",      { fg = "#E5C07B" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.variable",      { fg = "#E06C75" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.enum",          { fg = "#56B6C2" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.interface",     { fg = "#61AFEF" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.namespace",     { fg = "#ABB2BF" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.struct",        { fg = "#56B6C2" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.constructor",   { fg = "#D19A66" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.enumMember",    { fg = "#E06C75" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.typeParameter", { fg = "#D19A66" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.parameter",     { fg = "#E5C07B" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.macro",         { fg = "#C678DD" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.keyword",       { fg = "#FF79C6" })
+--   vim.api.nvim_set_hl(0, "@lsp.type.modifier",      { fg = "#56B6C2" })
+-- end
+--
+-- set_navic_highlights()
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   pattern = "*",
+--   callback = set_navic_highlights,
+-- })
