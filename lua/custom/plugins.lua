@@ -11,9 +11,15 @@ local plugins = {
     opts = {
       ensure_installed = {
         "pyright",
+        "pylint",
         "mypy",
         "ruff",
         "clangd",
+        "lemminx",
+        "rust-analyzer",
+        "cmake-language-server",
+        "lua-language-server",
+        "marksman"
       },
     },
   },

@@ -35,6 +35,7 @@ lspconfig.pyright.setup({
 
         extraPaths = {
           "/opt/ros/humble/include",
+          "/opt/ros/noetic/include",
         },
       },
     },
