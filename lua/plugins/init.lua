@@ -290,12 +290,62 @@ end)
 
 
 
+-- Keybindings
+vim.api.nvim_set_keymap(
+    "v",
+    "<F1>",
+    ":<c-u>HSHighlight 1<CR>",
+    {
+        noremap = true,
+        silent = true
+    }
+)
+vim.api.nvim_set_keymap(
+    "v",
+    "<F2>",
+    ":<c-u>HSHighlight 2<CR>",
+    {
+        noremap = true,
+        silent = true
+    }
+)
+vim.api.nvim_set_keymap(
+    "v",
+    "<F3>",
+    ":<c-u>HSHighlight 3<CR>",
+    {
+        noremap = true,
+        silent = true
+    }
+)
+vim.api.nvim_set_keymap(
+    "v",
+    "<F4>",
+    ":<c-u>HSHighlight 4<CR>",
+    {
+        noremap = true,
+        silent = true
+    }
+)
+
+vim.api.nvim_set_keymap(
+    "v",
+    "<F12>",
+    ":<c-u>HSRmHighlight<CR>",
+    {
+        noremap = true,
+        silent = true
+    }
+)
+
+
 require("ibl").setup { indent = { highlight = highlight } }
 -- require("nvim-rg").setup()
 
 
 require("trouble").setup()
 
+require("high-str")
 
 require("spectre").setup(require("custom.configs.spectre"))
 
