@@ -53,6 +53,8 @@ lspconfig.pyright.setup({
   }
 })
 
+lspconfig.bashls.setup({})
+
 
 -- -- Function to show diagnostics in the quickfix list
 -- local function show_diagnostics_in_quickfix()

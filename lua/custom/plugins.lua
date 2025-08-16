@@ -14,6 +14,8 @@ local plugins = {
         "mypy",
         "ruff",
         "clangd",
+        -- "bashls",
+        "shellcheck"
       },
     },
   },
