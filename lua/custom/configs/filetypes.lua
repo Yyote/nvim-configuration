@@ -1,4 +1,7 @@
 vim.filetype.add {
-  extension = { launch = "xml" },
+  extension = {
+        launch = "xml",
+        sdf = "xml"
+    },
 }
 
