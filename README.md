@@ -58,3 +58,11 @@ lua-language-server --version
 ```
 
 You should see the version output.[^3]
+
+## 7. Go language setup
+
+```bash
+go install github.com/incu6us/goimports-reviser/v3@latest
+go install mvdan.cc/gofump@latest
+go install github.com/segmentio/golines@latest
+```

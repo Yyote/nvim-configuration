@@ -21,6 +21,7 @@ local plugins = {
         "cmake-language-server",
         "lua-language-server",
         "marksman",
+        "gopls",
       },
     },
   },
@@ -141,7 +142,7 @@ local plugins = {
       --- Put your configuration here
       ---@type Neominimap.UserConfig
       vim.g.neominimap = {
-        auto_enable = true,
+        auto_enable = false,
       }
     end,
   },

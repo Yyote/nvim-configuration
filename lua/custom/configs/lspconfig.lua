@@ -4,7 +4,25 @@ local on_attach = config.on_attach
 local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig")
+local util = require "lspconfig/util"
 
+-- According to https://www.youtube.com/watch?v=i04sSQjd-qo
+lspconfig.gopls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {"gopls"},
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    root_dir = util.root_pattern("go_work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true,
+            },
+        },
+    },
+}
 
 -- root_dir = function(filename)
 --   return util.root_pattern(unpack(root_files))(filename) or util.path.dirname(filename)
@@ -43,6 +61,7 @@ lspconfig.pyright.setup({
 })
 
 lspconfig.bashls.setup({})
+
 
 
 -- -- Function to show diagnostics in the quickfix list
