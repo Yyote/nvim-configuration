@@ -149,6 +149,11 @@ local plugins = {
   {
     "Pocco81/HighStr.nvim",
   },
+  {
+    "yutkat/confirm-quit.nvim",
+    event = "CmdlineEnter",
+    opts = {},
+  },
 }
 
 -- require("ibl").setup()
