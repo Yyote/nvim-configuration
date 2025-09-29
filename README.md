@@ -2,15 +2,25 @@
 
 ## 1. silver sercher (ag) 
 
+```bash
+sudo apt install silversearcher-ag
+```
+
 ## 2. bash-language-server
 
 ```bash
-npm install -g bash-language-server
+sudo npm install -g bash-language-server
 ```
 
 ## 3. pyright
 
+```bash
+sudo npm install -g pyright
+```
+
 ## 4. nerd font
+
+Google and install in ~/.fonts .
 
 ##  5. ctags
 
@@ -61,8 +71,13 @@ You should see the version output.[^3]
 
 ## 7. Go language setup
 
+Install Go
+
 ```bash
 go install github.com/incu6us/goimports-reviser/v3@latest
 go install mvdan.cc/gofump@latest
-go install github.com/segmentio/golines@latest
+g  install github.com/segmentio/golines@latest
+go install golang.org/x/tools/gopls@latest
 ```
+
+Add go binary destination to PATH
