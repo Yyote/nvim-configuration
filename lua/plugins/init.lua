@@ -339,6 +339,22 @@ vim.api.nvim_set_keymap(
 )
 
 
+
+-- Normal mode bindings:
+
+-- buffer splits
+vim.keymap.set("n", "<leader>sh", ":split<CR>", {desc = "Horizontal Split"})
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", {desc = "Vertical Split"})
+
+-- quit
+vim.keymap.set("n", "<leader>q", ":ConfirmQuit<CR>", {desc = "Quit"})
+vim.keymap.set("n", "<leader>qa", ":ConfirmQuitAll<CR>", {desc = "Quit"})
+vim.keymap.set("n", "<leader>Q", ":q!<CR>", {desc = "Quit"})
+vim.keymap.set("n", "<leader>Qa", ":qa!<CR>", {desc = "Quit"})
+vim.keymap.set("n", "<leader>wq", ":wq<CR>", {desc = "Quit"})
+vim.keymap.set("n", "<leader>wqa", ":wqa<CR>", {desc = "Quit"})
+
+
 require("ibl").setup { indent = { highlight = highlight } }
 -- require("nvim-rg").setup()
 
