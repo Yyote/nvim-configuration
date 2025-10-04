@@ -181,7 +181,31 @@ local plugins = {
   --     },
       -- see below for full list of options 👇
     },
-  }
+  },
+  {
+    "tenxsoydev/tabs-vs-spaces.nvim",
+    config = true
+  },
+  {
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          go = { "gofmt", "goimports" },  -- or use "gofumpt" for stricter formatting
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = true,
+        },
+      })
+      
+      -- Manual format keybinding
+      vim.keymap.set("n", "<leader>f", function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end)
+    end,
+  },
 }
 
 -- require("ibl").setup()

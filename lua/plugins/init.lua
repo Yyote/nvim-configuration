@@ -356,3 +356,41 @@ require("snippy").setup(require("custom.configs.snippy"))
 require "custom/configs/filetypes"
 -- require("plugins/configs/gutentags.lua").setup()
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist)
+
+require("tabs-vs-spaces").setup {
+  -- Preferred indentation. Possible values: "auto"|"tabs"|"spaces".
+  -- "auto" detects the dominant indentation style in a buffer and highlights deviations.
+  indentation = "spaces",
+  -- Use a string like "DiagnosticUnderlineError" to link the `TabsVsSpace` highlight to another highlight.
+  -- Or a table valid for `nvim_set_hl` - e.g. { fg = "MediumSlateBlue", undercurl = true }.
+  highlight = "DiagnosticUnderlineHint",
+  -- Priority of highight matches.
+  priority = 20,
+  ignore = {
+    filetypes = {},
+    -- Works for normal buffers by default.
+    buftypes = {
+      "acwrite",
+      "help",
+      "nofile",
+      "nowrite",
+      "quickfix",
+      "terminal",
+      "prompt",
+    },
+  },
+  standartize_on_save = false,
+  -- Enable or disable user commands see Readme.md/#Commands for more info.
+  user_commands = true,
+}
+
+-- In your NvChad config, add a Go-specific override
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.opt_local.expandtab = false  -- Use actual tabs
+    vim.opt_local.tabstop = 4        -- Display tabs as 4 spaces width
+    vim.opt_local.shiftwidth = 4     -- Indent with 4 spaces worth
+  end,
+})
+
