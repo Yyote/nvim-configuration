@@ -5,12 +5,12 @@ local M = {}
 -- M.ui = { theme = 'ayu_dark' }
 -- theme = 'everblush',
 -- M.ui = { theme = 'rxyhn' }
-  -- theme = 'decay',
+  -- theme = 'tokyonight',
   -- theme = 'doomchad',
-  -- theme = 'monekai',
+  -- theme = 'tokyonight',
   -- theme = 'dark_horizon',
 M.ui = {
-  theme = 'decay',
+  theme = 'tokyonight',
   transparency = true,
 }
 
