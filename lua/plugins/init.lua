@@ -56,14 +56,16 @@ local default_plugins = {
     {
         "lukas-reineke/indent-blankline.nvim",
         version = "3.5.4",
+        main = "ibl",
         event = "User FilePost",
-        opts = function()
-            return require("plugins.configs.others").blankline
-        end,
+        opts = {},
+        -- opts = function()
+        --     return require("plugins.configs.others").blankline
+        -- end,
         config = function(_, opts)
             require("core.utils").load_mappings "blankline"
             dofile(vim.g.base46_cache .. "blankline")
-            require("indent_blankline").setup(opts)
+            require("ibl").setup(opts)
         end,
     },
 
