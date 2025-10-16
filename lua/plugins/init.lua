@@ -375,17 +375,25 @@ require "custom/configs/filetypes"
 -- require("plugins/configs/gutentags.lua").setup()
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist)
 
+-- Define custom highlight
+vim.api.nvim_set_hl(0, "TabSpaceMismatch", {
+    fg = "#ff0000",    -- red text
+    bg = "#662727",    -- dark gray background
+    undercurl = false, -- wavy underline
+    sp = "#ff6b6b"     -- underline color
+})
+
 require("tabs-vs-spaces").setup {
     -- Preferred indentation. Possible values: "auto"|"tabs"|"spaces".
     -- "auto" detects the dominant indentation style in a buffer and highlights deviations.
     indentation = "spaces",
     -- Use a string like "DiagnosticUnderlineError" to link the `TabsVsSpace` highlight to another highlight.
     -- Or a table valid for `nvim_set_hl` - e.g. { fg = "MediumSlateBlue", undercurl = true }.
-    highlight = "DiagnosticUnderlineHint",
+    highlight = "TabSpaceMismatch",
     -- Priority of highight matches.
     priority = 20,
     ignore = {
-        filetypes = {},
+        filetypes = { "go" },
         -- Works for normal buffers by default.
         buftypes = {
             "acwrite",
